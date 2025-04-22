@@ -1,0 +1,268 @@
+
+
+body {
+    font-family: "Tahoma", monospace;
+    margin: 0px;
+    padding: 0px;
+    background-color: black;
+    color: white;
+    text-align: center;
+    /*background-image: url("../image/bg.png");
+    background-size: 100%;
+    background-repeat: repeat;*/
+}
+
+/*xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx폰트 및 들여쓰기 관리xxxxxxxxxxxxx*/
+p {
+     font-weight: lighter;
+}
+
+br {
+    border: 0px 100px;
+}
+
+H1 {
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+/*xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx시멘틱 태그들xxxxxxxxxxxxx*/
+header {
+    background: transparent;
+    color: white;
+    text-align: center;
+    padding: 20px 60px;
+    position: fixed;
+    }
+
+
+footer {
+    background-color: transparent;
+    color: white;
+    padding: 30px 30px;
+    text-align: center;
+    margin-top: 600px;
+    font-size: 0.7rem;
+}
+
+section {
+    margin: 0px;
+    border: 0px;
+}
+
+nav {
+
+}
+
+/*xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx기타 태그들 (info 등)xxxxxxxxxxxxx*/
+.about {
+   
+   display: inline-block;
+   
+}
+
+.info {
+    text-align: left;
+    font-weight: lighter;
+    padding-left: 50px;
+}
+
+.info1 {
+    text-align: left;
+    padding: 0px 350px;
+    font-weight: bolder;
+    margin-top: 450px;
+}
+
+
+.statement {
+      text-align: left;
+      font-weight: lighter;
+      display: inline-block;
+      padding-top: 100px;
+     
+}
+
+.phrase {
+    text-align: center;
+    display: inline-flex;
+    margin: 0px 25%;
+    margin-top: 400px;
+ }
+
+ .phrase:hover {
+    color: #8C86EF;
+
+ }
+
+ .worknav {
+    background: transparent;
+    text-align: left;
+    padding: 0px 55px;
+    line-height: 2.2rem;
+    font-weight: bolder;
+    font-size: 1.3rem;
+    position: fixed;
+ }
+
+ .worknav a:link {
+  color: white;
+  text-decoration: none;
+}
+
+  .worknav a:hover {
+  color: #8C86EF;
+}
+
+  .worknav a {
+    padding: 10px 0px;
+  }
+
+
+table {
+
+}
+
+tr {
+    vertical-align: text-top;
+    text-align:left;
+    
+}
+
+td {
+vertical-align: text-top;
+    text-align:left;
+}
+
+a:link {
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  font-weight: lighter;
+}
+
+a:visited {
+  color: white;
+  text-decoration: none;
+}
+
+a:hover {
+    color: #8C86EF;
+
+}
+
+.contents {
+    padding: 0px 0px;
+    padding-top: 200px;
+
+    color: white;
+    background-color: transparent;
+    font-size: 1.4rem;
+    text-align: center;
+    display: inline-flex;
+}
+
+
+/*xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx메인화면 gif 위에 커서 올릴 때xxxxxxxxxxxxx*/
+.hover-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;   
+    align-items: center;       
+
+    font-size: 1.8rem;
+    color: white;
+    font-weight: bold;
+    opacity: 0;
+}
+
+
+.navimg1, .navimg2, .navimg3 {
+    position: relative;
+    display: inline-block;
+    width: 400px;
+    text-align: center;
+    padding: 0px 10px;
+}
+
+.navimg1:hover img, .navimg2:hover img, .navimg3:hover img {
+    opacity: 0;
+}
+
+.navimg1:hover .hover-text, .navimg2:hover .hover-text, .navimg3:hover .hover-text {
+    opacity: 1;
+    color: white;
+}
+
+/*xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx작업 이미지 위에 커서 올릴 때xxxxxxxxxxxxx*/
+.hover-text2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;    /* 가로 중앙 정렬 */
+    align-items: center;        /* 세로 중앙 정렬 */
+
+    font-size: 1.3rem;
+    color: white;
+    font-weight: lighter;
+    opacity: 0;
+    text-align: center;
+}
+
+.wkimg {
+    position: relative;
+    display: inline-block;
+    width: 400px;
+    text-align: center;
+}
+
+.wkimg:hover img{
+    opacity: 40%;
+}
+
+.wkimg:hover .hover-text2{
+    opacity: 1;
+    color: white;
+}
+
+/*xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx작업 이미지 관리xxxxxxxxxxxxx*/
+.project {
+ text-align: center;
+ margin-left: 25%;
+ margin-right: 25%;
+ margin-bottom: 150px;
+ margin-top: 350px;
+}
+
+.project img {
+  max-width: 400px;
+  min-width: 200px;
+  padding: 10px 10px;
+}
+
+
+
+/*xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx메인화면 gif 관리xxxxxxxxxxxxx*/
+.waterdrop {
+    padding: 150px 0px;
+    padding-bottom: 0px;
+}
+
+
+
+
+
+
+
+/*버튼에도 호버링 효과 추가하기, About과 Contact 페이지 컨텐츠 추가하기 
+
+
+
