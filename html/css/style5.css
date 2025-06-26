@@ -28,10 +28,10 @@ H1 {
 /*xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx시멘틱 태그들xxxxxxxxxxxxx*/
 header {
     background: transparent;
-    color: white;
-    text-align: center;
+    color: black;
+    text-align: left;
   margin: 0px;
-    padding: 0px;
+    padding: 20px 60px;
     position: fixed;
     }
 
