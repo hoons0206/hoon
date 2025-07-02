@@ -38,8 +38,8 @@ header {
 .logo {
    
   height: auto;
-  max-height: 150px;    /* 너무 커지지 않도록 제한 */
-  min-width: 120px;     /* 너무 작아지지 않도록 제한 */
+  max-height: 100px;    /* 너무 커지지 않도록 제한 */
+  min-width: 50px;     /* 너무 작아지지 않도록 제한 */
 
 }
 
