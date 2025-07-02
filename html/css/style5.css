@@ -40,6 +40,10 @@ header {
 }
 
 .bg {
+    background-color: transparent;
+}
+
+.bgimg {
     width: 70vw;
     height: auto;
     text-align: center;
