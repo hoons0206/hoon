@@ -40,8 +40,9 @@ header {
 }
 
 .bg {
-    width: auto;
-    height: 90vh
+    width: 70vw;
+    height: auto;
+    text-align: center;
 }
 
 footer {
