@@ -39,7 +39,10 @@ header {
 
 }
 
-
+.bg {
+    width: auto;
+    height: 90vh
+}
 
 footer {
     background-color: transparent;
