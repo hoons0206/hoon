@@ -40,6 +40,7 @@ header {
 }
 
 .bg {
+    background-color: transparent;
     width: 70vw;
     background-image: url("../image/bg1.png");
     background-size: contain;        /* 화면에 맞게 꽉 채움 */
