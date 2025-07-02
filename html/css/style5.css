@@ -38,8 +38,9 @@ header {
     padding: 0px;
     background-image: url("../image/bg1.png");
     background-size: 100%;
-    color: #231f20;
-    text-align: center;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100%; 
 }
 
 }
