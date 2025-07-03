@@ -42,10 +42,6 @@ header {
 .bg {
     width: 70vw;
     height: auto;
-    background-image: url("../image/bg1.png");
-    background-size: contain;        /* 화면에 맞게 꽉 채움 */
-    background-repeat: no-repeat;  /* 반복 방지 */
-    background-position: center;   /* 중앙 정렬 */
 }
 
 footer {
