@@ -4,10 +4,10 @@ body {
     font-family: "Tahoma", monospace;
     margin: 0px;
     padding: 0px;
-     background-image: url("../image/bg2.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
+    background-image: url("../image/bg2.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
     color: #231f20;
     text-align: center;
 }
