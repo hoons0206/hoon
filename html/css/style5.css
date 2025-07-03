@@ -31,13 +31,15 @@ header {
     background: transparent;
     color: #231f20;
     text-align: left;
-  margin: 3vw;
+    margin: 3vw;
     position: fixed;
+    display: inline-block;
     }
 
 .logo {
    
   width: 30vw;  
+  height: auto;
 
 }
 
