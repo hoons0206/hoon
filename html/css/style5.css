@@ -41,15 +41,16 @@ header {
     height: 100vh;
     padding: 5vh 5vw;
     position: relative;
+     top: 50%;              
+    left: 40%;             
+    transform: translate(-50%, -50%); 
 }
 
 
 .bg img {
     width: 30vw;  
     height: auto;
-    top: 50%;              
-    left: 40%;             
-    transform: translate(-50%, -50%); 
+   
 }
 
 footer {
