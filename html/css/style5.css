@@ -30,28 +30,23 @@ H1 {
 header {
     background: transparent;
     color: #231f20;
-    text-align: left;
-    margin: 3vw;
-    position: fixed;
-    display: inline-block;
-    }
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
 
 .bg {
-    width: 50vw;
-    height: 100vh;
-    padding: 5vh 5vw;
-    position: relative;
-     top: 50%;              
-    left: 40%;             
-    transform: translate(-50%, -50%); 
+    position: absolute;
+    top: 50%;
+    left: 40%; /* 화면 중앙보다 살짝 왼쪽 */
+    transform: translate(-50%, -50%);
 }
-
 
 .bg img {
-    width: 30vw;  
+    width: 15vw;
     height: auto;
-   
 }
+
 
 footer {
     background-color: transparent;
