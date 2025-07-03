@@ -31,15 +31,14 @@ header {
     background: transparent;
     color: #231f20;
     text-align: left;
-  margin: 0px;
-    padding: 20px 60px;
+  margin: 3vw;
     position: fixed;
     }
 
 .logo {
    
   width: auto;
-  height: 7vh;    
+  height: 70vh;    
 
 }
 
