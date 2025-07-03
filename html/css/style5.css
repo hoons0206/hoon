@@ -36,6 +36,14 @@ header {
     display: inline-block;
     }
 
+.bg {
+    width: 50vw;
+    height: 100vh;
+    padding: 5vh 5vw;
+    position: relative;
+}
+
+
 .bg img {
      width: 30vw;  
   height: auto;
