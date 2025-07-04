@@ -13,6 +13,12 @@ body {
     text-align: center;
 }
 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 /*xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx폰트 및 들여쓰기 관리xxxxxxxxxxxxx*/
 p {
      font-weight: lighter;
