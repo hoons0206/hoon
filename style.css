@@ -9,6 +9,6 @@
   background-color: #fcfcfc;
   background-image: linear-gradient(to bottom, #1B7AE6 1px, transparent 23px);
   background-size: 100% 24px; /* 24px base line grid */
-  cursor: url('cursor.svg') 40 40, auto;
+  cursor: url('cursor.svg') 26.5 26.5, auto;
 
 }
