@@ -1,5 +1,5 @@
  body {
-  
+
   margin: 0;
   padding: 0;
   font-family: sans-serif;
@@ -17,33 +17,33 @@
   background-color: #DFE8F4;
 
   background-image: 
-    /* 1. 고정 격자 패턴 */
-    linear-gradient(to right, rgba(0, 0, 0, 0.03) 4px, transparent 1px),
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 4px, transparent 1px),
-
-    /* 2. 흐르는 듯한 레이어 1 */
-    radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.2) 0%, transparent 80%),
-
-    /* 3. 흐르는 듯한 레이어 2 */
-    radial-gradient(circle at 70% 70%, rgba(255, 255, 255, 0.1) 0%, transparent 80%);
+    linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+    radial-gradient(circle at center, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.1) 60%, transparent 100%),
+    radial-gradient(circle at 10% 80%, rgba(255, 255, 255, 0.12) 0%, transparent 80%),
+    radial-gradient(circle at 90% 10%, rgba(200, 220, 255, 0.1) 0%, transparent 80%);
 
   background-size: 
-    5px 5px,            /* 격자 */
-    5px 5px,            /* 격자 */
-    150% 150%,          /* 레이어 1 */
-    200% 200%;          /* 레이어 2 */
+    6px 6px,     /* 격자 */
+    6px 6px,     
+    200% 200%,   /* 중앙 radial mask */
+    150% 150%,   /* 비대칭 흐름 */
+    150% 150%;
 
   background-position: 
-    0 0,                /* 격자 고정 */
     0 0,
-    0 0,                /* 움직일 배경들 */
-    0 0;
+    0 0,
+    50% 50%,
+    0% 100%,
+    100% 0%;
 
-  animation: floatLayers 12s ease-in-out infinite;
+  animation: floatLayers 16s ease-in-out infinite;
   transition: background-position 0.1s ease-out;
+  overflow-x: hidden;
+  will-change: background-position;
 
-  /*background-image: linear-gradient(to bottom, #1B7AE6 1px, transparent 23px);
-  background-size: 100% 24px; /* 24px base line grid */
+
+
   cursor: url('cursor.png') 0 0, auto;
 
 }
@@ -55,26 +55,53 @@
 header {
     margin: 3vh 3vw;
     display: inline-block;
+    text-align: left;
 }
 
+.statement {
+    margin: 3vh 3vw;
+    text-align: left;
+    font-size: 0.8rem;
+}
 
 a {
   all: unset;
   cursor: pointer;
 }
 
+
 .contents {
+  justify-content: flex-start;   
+  align-items: flex-start;
   display: flex;
   flex-direction: row;
-  justify-content: left;
   align-items: left;
-  width: 70vw;   /* ✅ 전체 뷰포트의 80%만 차지 */
+  width: 90vw;   /* ✅ 전체 뷰포트의 80%만 차지 */
   height: 70vh;  /* ✅ 전체 뷰포트의 80%만 차지 */
-  margin: auto;  /* ✅ 가운데 정렬 */
+  margin: 3vw;  
   gap: 1vw;      /* ✅ 슬라이더 사이 간격 */
   box-sizing: border-box;
 }
 
+.links {
+  display: flex;
+  flex-direction: column; 
+  align-items: flex-start; 
+  gap: 0.5rem; 
+}
+
+.links a {
+  font-size: 1.2rem;       
+  color: #2c2e30;
+  text-decoration: none;
+  margin-right: 1.5em;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.links a:hover {
+  opacity: 0.6;
+}
 
 .slider {
   flex: 1;
