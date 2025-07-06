@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 500);
   }
 
-  setInterval(changeImage1, 4000); // 슬라이더 1
-  setInterval(changeImage2, 5000); // 슬라이더 2 (다르게 줘도 좋아)
+  setInterval(changeImage1, 2500); // 슬라이더 1
+  setInterval(changeImage2, 2500); // 슬라이더 2 (다르게 줘도 좋아)
 });
 
