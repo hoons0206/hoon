@@ -39,11 +39,27 @@ document.addEventListener('DOMContentLoaded', () => {
     'images/20.png'
   ];
 
+  const images3 = [
+    'images/21.png',
+    'images/22.png',
+    'images/23.png',
+    'images/24.png',
+    'images/25.png',
+    'images/26.png',
+    'images/27.png',
+    'images/28.png',
+    'images/29.png',
+    'images/30.png'
+  ];
+
   let index1 = 0;
   let index2 = 0;
+  let index3 = 0;
 
   const img1 = document.getElementById('slideImage1');
   const img2 = document.getElementById('slideImage2');
+  const img3 = document.getElementById('slideImage3');
+
 
   function changeImage1() {
     img1.style.opacity = 0;
@@ -63,7 +79,29 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 500);
   }
 
-  setInterval(changeImage1, 2500); // 슬라이더 1
-  setInterval(changeImage2, 2500); // 슬라이더 2 (다르게 줘도 좋아)
+    function changeImage3() {
+    img3.style.opacity = 0;
+    setTimeout(() => {
+      index3 = (index3 + 1) % images3.length;
+      img3.src = images3[index3];
+      img3.style.opacity = 1;
+    }, 500);
+  }
+
+
+  setInterval(changeImage1, 2500); 
+  setInterval(changeImage2, 3000);
+  setInterval(changeImage3, 3500); 
 });
+
+document.querySelectorAll('.slider').forEach(slider => {
+  slider.addEventListener('mouseenter', () => {
+    slider.classList.add('hovered');
+  });
+
+  slider.addEventListener('mouseleave', () => {
+    slider.classList.remove('hovered');
+  });
+});
+
 
