@@ -105,6 +105,7 @@ a {
 
 .slider {
   flex: 1;
+  position: relative;
   height: 100%;
   display: flex;
   justify-content: center;
@@ -113,14 +114,63 @@ a {
 }
 
 .slider img {
-  max-width: 100%;
-  max-height: 100%;
-  width: auto;
-  height: auto;
+  position: absolute;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
-  display: block;
-  transition: opacity 1s ease-in-out;
+  transition: opacity 0.5s ease;
+  z-index: 1;
+  opacity: 1; /* 기본값 */
 }
+
+.overlay-text {
+  background-color: #DFE8F4;
+
+  background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+    radial-gradient(circle at center, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.1) 60%, transparent 100%),
+    radial-gradient(circle at 10% 80%, rgba(255, 255, 255, 0.12) 0%, transparent 80%),
+    radial-gradient(circle at 90% 10%, rgba(200, 220, 255, 0.1) 0%, transparent 80%);
+
+  background-size: 
+    6px 6px,     /* 격자 */
+    6px 6px,     
+    200% 200%,   /* 중앙 radial mask */
+    150% 150%,   /* 비대칭 흐름 */
+    150% 150%;
+
+  background-position: 
+    0 0,
+    0 0,
+    50% 50%,
+    0% 100%,
+    100% 0%;
+
+  position: absolute;
+  top: 40px;
+  left: 0;
+  right: 0;
+  padding: 1.7rem;
+  font-size: 1.9rem;
+  font-weight: bold;
+  color: black;
+  text-align: left;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* 커서 올리면 이미지 반투명 + 텍스트 나타남 */
+.slider:hover img {
+  opacity: 0.3;
+}
+
+.slider:hover .overlay-text {
+  opacity: 1;
+}
+
 
 @media (max-aspect-ratio: 3/4), (max-width: 768px) {
   .contents {
@@ -129,17 +179,6 @@ a {
     height: 90vh;
     gap: 2vh;
   }
-
-  .slider {
-    width: 70vw;
-    height: auto; /* 수직으로 나눔 */
-  }
-
-  .slider img {
-    max-width: 100%;
-    max-height: 100%;
-  }
-}
 
 
 footer {
