@@ -98,6 +98,7 @@ a {
   margin-right: 1.5em;
   display: inline-block;
   transition: all 0.3s ease;
+  font-size: 0.8rem;
 }
 
 .links a:hover {
