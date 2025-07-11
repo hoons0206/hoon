@@ -184,6 +184,7 @@ a {
 footer {
   margin-top: 3vh;
   text-align: center;
+  content-align: center;
 }
 
 footer p {
