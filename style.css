@@ -112,6 +112,12 @@ a {
     align-items: center;
 }
 
+.info table {
+    width: fit-content; 
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .slider {
   flex: 1;
   position: relative;
@@ -201,6 +207,7 @@ footer p {
   font-size: 0.65rem; 
   padding: 0.5em 0;
 }
+
 
 
 
