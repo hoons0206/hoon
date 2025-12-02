@@ -59,6 +59,17 @@ header {
     font-size: 0.8rem;
 }
 
+.info {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.info table {
+    margin: auto;
+}
 .statement {
     margin: 3vh 3vw;
     text-align: left;
@@ -194,6 +205,7 @@ footer p {
   font-size: 0.7rem; 
   padding: 0.5em 0;
 }
+
 
 
 
