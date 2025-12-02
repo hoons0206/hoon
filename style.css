@@ -60,15 +60,22 @@ header {
 }
 
 .info {
-    flex-grow: 1;
+    flex-grow: 1; 
     display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+    justify-content: center; 
+    align-items: center;    
+    text-align: center; 
 }
 
 .info table {
-    margin: auto;
+    margin: auto; 
+    text-align: left;
+}
+
+/* HTML 테이블 코드에 불필요한 빈 <th>를 제거하고, <td>에도 <h4>를 제거하여 간단하게 만들면 더 좋습니다. */
+.info table td h4 {
+    /* 제목은 왼쪽 정렬 유지 */
+    text-align: left;
 }
 .statement {
     margin: 3vh 3vw;
@@ -83,16 +90,9 @@ a {
 
 
 .contents {
-  justify-content: flex-start;   
-  align-items: flex-start;
-  display: flex;
-  flex-direction: row;
-  align-items: left;
-  width: 90vw;   /* ✅ 전체 뷰포트의 80%만 차지 */
-  height: 70vh;  /* ✅ 전체 뷰포트의 80%만 차지 */
-  margin: 3vw;  
-  gap: 1vw;      /* ✅ 슬라이더 사이 간격 */
-  box-sizing: border-box;
+    height: auto; 
+    width: 90vw;
+    margin: 3vw;
 }
 
 .links {
@@ -205,6 +205,7 @@ footer p {
   font-size: 0.7rem; 
   padding: 0.5em 0;
 }
+
 
 
 
