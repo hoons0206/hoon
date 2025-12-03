@@ -135,7 +135,10 @@ a {
 }
 
 .links a:hover {
-  font-weight: bold;
+  font-weight: normal;    /* 강제로 bold 안 씀 */
+  font-size: 2rem;        /* 글자 키워서 강조 */
+  color: #000;            /* 컬러로 강조 */
+  letter-spacing: -0.02em;
 }
 
 .info {
@@ -216,7 +219,10 @@ a {
 }
 
 .slider:hover .overlay-text {
-  opacity: 1;
+  font-weight: normal;    /* 강제로 bold 안 씀 */
+  font-size: 2rem;        /* 글자 키워서 강조 */
+  color: #000;            /* 컬러로 강조 */
+  letter-spacing: -0.02em;
 }
 
 
@@ -240,6 +246,7 @@ footer p {
   font-size: 0.65rem; 
   padding: 0.5em 0;
 }
+
 
 
 
