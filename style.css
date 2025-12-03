@@ -85,6 +85,16 @@ a {
   box-sizing: border-box;
 }
 
+.projects {
+  justify-content: flex-start;   
+  align-items: flex-start;
+  align-items: left;
+  width: 90vw;   /* ✅ 전체 뷰포트의 80%만 차지 */
+  margin: 3vw;  
+  gap: 1vw;      /* ✅ 슬라이더 사이 간격 */
+  box-sizing: border-box;
+}
+
 .links {
   display: flex;
   flex-direction: column; 
@@ -208,6 +218,7 @@ footer p {
   font-size: 0.65rem; 
   padding: 0.5em 0;
 }
+
 
 
 
