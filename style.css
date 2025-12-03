@@ -202,7 +202,7 @@ a {
 
 .slider:hover .overlay-text {
  font-weight: bold;    /* 강제로 bold 안 씀 */
-  font-size: 1.01rem;        /* 글자 키워서 강조 *
+  font-size: 1.01rem;      
 }
 
 
@@ -226,6 +226,7 @@ footer p {
   font-size: 0.65rem; 
   padding: 0.5em 0;
 }
+
 
 
 
