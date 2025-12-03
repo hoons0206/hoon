@@ -1,5 +1,5 @@
 @font-face {
-  font-family: 'Conservatory-Display';
+  font-family: 'Conservatory-Display', sans-serif;
   src: url('fonts/Conservatory-Display R.woff2') format('woff2'),
        url('fonts/Conservatory-Display R.woff') format('woff'),
        url('fonts/Conservatory-Display R.otf') format('opentype');
@@ -234,6 +234,7 @@ footer p {
   font-size: 0.65rem; 
   padding: 0.5em 0;
 }
+
 
 
 
