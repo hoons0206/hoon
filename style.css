@@ -66,6 +66,12 @@ header {
     height: 5vh;
 }
 
+.statement2 {
+    margin: 3vh 3vw;
+    text-align: left;
+    font-size: 0.7rem;
+}
+
 a {
   all: unset;
   cursor: pointer;
@@ -218,6 +224,7 @@ footer p {
   font-size: 0.65rem; 
   padding: 0.5em 0;
 }
+
 
 
 
