@@ -66,6 +66,10 @@ header {
     height: 5vh;
 }
 
+.statement p {
+    font-size: 1.1rem;
+}
+
 .statement2 {
     margin: 3vh 3vw;
     text-align: left;
@@ -225,6 +229,7 @@ footer p {
   font-size: 0.65rem; 
   padding: 0.5em 0;
 }
+
 
 
 
