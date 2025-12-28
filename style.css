@@ -7,10 +7,10 @@
 }
 
 .font-tester-container {
-    margin: 50px auto;
+    margin: 0px auto;
     max-width: 800px;
     padding: 20px;
-    text-align: center;
+    text-align: left;
 }
 
 .font-input {
@@ -262,6 +262,7 @@ footer p {
   font-size: 0.65rem; 
   padding: 0.5em 0;
 }
+
 
 
 
