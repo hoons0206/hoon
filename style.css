@@ -6,6 +6,15 @@
     font-style: normal;
 }
 
+.font-tester {
+    margin: 3vh 3vw;
+    flex-grow: 1; 
+    display: flex;
+    justify-content: left; 
+    align-items: left;
+}
+
+
 .font-tester-container {
     margin: 0px auto;
     max-width: 800px;
@@ -271,6 +280,7 @@ footer p {
   font-size: 0.65rem; 
   padding: 0.5em 0;
 }
+
 
 
 
