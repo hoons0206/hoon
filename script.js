@@ -104,4 +104,16 @@ document.querySelectorAll('.slider').forEach(slider => {
   });
 });
 
+const sizeSlider = document.getElementById('sizeSlider');
+const fontInput = document.querySelector('.font-input');
+const sizeValue = document.getElementById('sizeValue');
+
+if (sizeSlider) {
+    sizeSlider.addEventListener('input', (e) => {
+        const size = e.target.value + 'px';
+        fontInput.style.fontSize = size;
+        sizeValue.textContent = size;
+    });
+}
+
 
