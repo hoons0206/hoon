@@ -42,6 +42,7 @@
 /* 글자 크기 조절 슬라이더 (옵션) */
 .controls {
     margin-bottom: 20px;
+    max-width: 10vw;
 }
 
 /* 슬라이더 전체 기본 스타일 초기화 */
@@ -50,7 +51,6 @@ input[type="range"] {
     width: 100%;
     background: transparent; /* 전체 배경 투명 */
     cursor: pointer;
-    height: 30px; /* 클릭 가능한 영역 확보 */
 }
 
 /* 1. 슬라이더 막대(Track) - 투명하게 설정 */
@@ -64,8 +64,8 @@ input[type="range"]::-webkit-slider-runnable-track {
 /* 2. 슬라이더 버튼(Thumb) - 검정색 원 */
 input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
-    height: 18px;
-    width: 18px;
+    height: 10px;
+    width: 10px;
     border-radius: 50%; /* 원형 */
     background: #000000; /* 검정색 */
     cursor: pointer;
@@ -322,6 +322,7 @@ footer p {
   font-size: 0.65rem; 
   padding: 0.5em 0;
 }
+
 
 
 
