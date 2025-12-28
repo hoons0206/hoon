@@ -18,11 +18,12 @@
     height: 200px;
     font-family: Conservatory Display, serif; /* 등록한 폰트 적용 */
     font-size: 48px; /* 기본 크기 */
-    border: 1px solid #ccc;
-    padding: 20px;
+    border: transparent;
+    padding: 0px;
     outline: none;
     resize: vertical; /* 사용자가 높이 조절 가능 */
     line-height: 1.4;
+    background-color: transparent;
 }
 
 /* 글자 크기 조절 슬라이더 (옵션) */
@@ -261,6 +262,7 @@ footer p {
   font-size: 0.65rem; 
   padding: 0.5em 0;
 }
+
 
 
 
