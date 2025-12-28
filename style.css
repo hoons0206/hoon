@@ -11,6 +11,7 @@
     max-width: 800px;
     padding: 20px;
     text-align: left;
+    min-height: 30vh;
 }
 
 .font-input {
@@ -21,9 +22,14 @@
     border: transparent;
     padding: 0px;
     outline: none;
-    resize: vertical; /* 사용자가 높이 조절 가능 */
+
     line-height: 1.4;
     background-color: transparent;
+    overflow-y: auto; 
+    resize: none; 
+    line-height: 1.4;
+    display: block;
+    box-sizing: border-box;
 }
 
 /* 글자 크기 조절 슬라이더 (옵션) */
@@ -262,6 +268,7 @@ footer p {
   font-size: 0.65rem; 
   padding: 0.5em 0;
 }
+
 
 
 
