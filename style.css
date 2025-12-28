@@ -8,10 +8,6 @@
 
 .font-tester {
     margin: 3vh 3vw;
-    flex-grow: 1; 
-    display: flex;
-    justify-content: left; 
-    align-items: left;
 }
 
 
@@ -280,6 +276,7 @@ footer p {
   font-size: 0.65rem; 
   padding: 0.5em 0;
 }
+
 
 
 
