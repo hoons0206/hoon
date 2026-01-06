@@ -6,6 +6,14 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: Conservatory; /* 원하는 이름으로 설정 */
+    src: url('fonts/myfont.woff2') format('woff2'), /* 폰트 파일 경로 확인 */
+         url('fonts/Conservatory ADV2 R.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 .font-tester {
     margin: 3vh 3vw;
 }
@@ -322,6 +330,7 @@ footer p {
   font-size: 0.65rem; 
   padding: 0.5em 0;
 }
+
 
 
 
