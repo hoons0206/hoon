@@ -24,7 +24,7 @@
     padding: 20px;
     text-align: left;
     min-height: 30vh;
-    height: 600px; 
+    height: 400px; 
     display: flex;
     flex-direction: column;
 }
@@ -330,6 +330,7 @@ footer p {
   font-size: 0.65rem; 
   padding: 0.5em 0;
 }
+
 
 
 
