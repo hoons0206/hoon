@@ -108,7 +108,7 @@ input[type="range"]::-moz-range-thumb {
 }
 body {
 
-  font-family: "나눔고딕", NanumGothic, "돋움", dotum, sans-serif;
+  font-family: Conservatory, sans-serif;
     
   margin: 0;
   padding: 0;
@@ -339,6 +339,7 @@ footer p {
   font-size: 0.65rem; 
   padding: 0.5em 0;
 }
+
 
 
 
