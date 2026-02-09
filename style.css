@@ -1,51 +1,131 @@
+/* 1. 폰트 정의 (가장 상단에 위치) */
 @font-face {
-    font-family: Conservatory Display; /* 원하는 이름으로 설정 */
-    src: url('fonts/myfont.woff2') format('woff2'), /* 폰트 파일 경로 확인 */
-         url('fonts/Conservatory Display ADV R.otf') format('opentype');
+    font-family: 'Conservatory Display';
+    /* 경로 확인: fonts 폴더 내 파일명과 정확히 일치해야 함 */
+    src: url('./fonts/myfont.woff2') format('woff2'),
+         url('./fonts/Conservatory Display ADV R.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
-    font-family: Conservatory; /* 내가 사용할 이름 (자유롭게 지정) */
+    font-family: 'Conservatory';
     src: url('./fonts/Conservatory ADV3 R.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
-.font-tester {
-    margin: 3vh 3vw;
-}
-
-
-.font-tester-container {
-    max-width: 90vw;
-    padding: 20px;
-    text-align: left;
-    min-height: 30vh;
-    height: 400px; 
+/* 2. 기본 레이아웃 설정 */
+body {
+    /* 기본 폰트 설정 (가장 아래에 있던 중복 선언 제거) */
+    font-family: 'Conservatory', sans-serif;
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
+    color: #2c2e30;
+    background-color: #DFE8F4;
+    overflow-x: hidden;
+    cursor: url('cursor.png') 10 10, auto;
+
+    /* 배경 애니메이션 및 효과 */
+    background-image: 
+        linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+        radial-gradient(circle at center, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.1) 60%, transparent 100%),
+        radial-gradient(circle at 10% 80%, rgba(255, 255, 255, 0.12) 0%, transparent 80%),
+        radial-gradient(circle at 90% 10%, rgba(200, 220, 255, 0.1) 0%, transparent 80%);
+    background-size: 6px 6px, 6px 6px, 200% 200%, 150% 150%, 150% 150%;
+    background-position: 0 0, 0 0, 50% 50%, 0% 100%, 100% 0%;
+    animation: floatLayers 16s ease-in-out infinite;
+    transition: background-position 0.1s ease-out;
+    will-change: background-position;
+}
+
+/* 3. 공통 요소 스타일 */
+a {
+    all: unset;
+    cursor: pointer;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+header {
+    margin: 3vh 3vw;
+    font-size: 0.8rem;
+}
+
+footer {
+    margin-top: 3vh;
+    text-align: center;
+}
+
+footer p {
+    font-size: 0.65rem;
+    padding: 0.5em 0;
+}
+
+/* 4. 컨텐츠 섹션 */
+.statement, .statement2 {
+    margin: 3vh 3vw;
+    text-align: left;
+    font-size: 1.1rem;
+}
+
+.contents {
+    display: flex;
+    flex-direction: row;
+    width: 90vw;
+    height: 70vh;
+    margin: 3vw;
+    gap: 1vw;
+    box-sizing: border-box;
+}
+
+.projects {
+    width: 90vw;
+    margin: 3vw;
+    box-sizing: border-box;
+}
+
+.links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.links a {
+    color: #2c2e30;
+    font-size: 0.8rem;
+    transition: all 0.3s ease;
+}
+
+.links a:hover {
+    font-weight: bold;
+}
+
+/* 5. 폰트 테스터 (입력창) 섹션 */
+.font-tester {
+    margin: 3vh 3vw;
 }
 
 .font-input {
     width: 100%;
     height: 50vh;
-    font-size: 48px; /* 기본 크기 */
+    font-size: 48px;
     border: none;
-    padding: 0px;
     outline: none;
-
-    line-height: 1.4;
     background-color: transparent;
-    overflow-y: auto; 
-    resize: none; 
+    resize: none;
     line-height: 1.4;
     display: block;
     box-sizing: border-box;
 }
 
-/* 개별 폰트 적용 */
 .font-input.regular {
     font-family: 'Conservatory', serif;
 }
@@ -54,314 +134,82 @@
     font-family: 'Conservatory Display', serif;
 }
 
-/* 글자 크기 조절 슬라이더 (옵션) */
-.controls {
-    margin-bottom: 20px;
-    max-width: 10vw;
+/* 6. 슬라이더 및 이미지 오버레이 */
+.slider {
+    flex: 1;
+    position: relative;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-/* 슬라이더 전체 기본 스타일 초기화 */
+.slider img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: opacity 0.5s ease;
+    z-index: 1;
+}
+
+.slider:hover img {
+    opacity: 0.3;
+}
+
+.overlay-text {
+    position: absolute;
+    top: 40px;
+    left: 0;
+    right: 0;
+    padding: 1.7rem;
+    font-size: 1.9rem;
+    font-weight: bold;
+    color: black;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 2;
+    pointer-events: none;
+    /* 배경 효과 재선언 (필요 시 유지) */
+    background-color: #DFE8F4;
+    background-image: inherit; /* body의 배경 상속 */
+}
+
+.slider:hover .overlay-text {
+    opacity: 1;
+}
+
+/* 7. 슬라이더 컨트롤 스타일 (Range input) */
 input[type="range"] {
     -webkit-appearance: none;
     width: 100%;
-    background: transparent; /* 전체 배경 투명 */
+    background: transparent;
     cursor: pointer;
 }
 
-/* 1. 슬라이더 막대(Track) - 투명하게 설정 */
 input[type="range"]::-webkit-slider-runnable-track {
     width: 100%;
-    height: 2px; /* 선의 높이를 0으로 하면 버튼이 잘릴 수 있어 2px 권장 */
-    background: transparent; /* 완전히 투명하게 (원하면 rgba(0,0,0,0.1)로 아주 연하게 설정 가능) */
-    border: none;
+    height: 2px;
+    background: transparent;
 }
 
-/* 2. 슬라이더 버튼(Thumb) - 검정색 원 */
 input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
     height: 15px;
     width: 15px;
-    border-radius: 50%; /* 원형 */
-    background: #000000; /* 검정색 */
-    cursor: pointer;
-    margin-top: -8px; /* 막대 중앙 정렬: (막대높이/2) - (버튼높이/2) */
-    border: none;
+    border-radius: 50%;
+    background: #000000;
+    margin-top: -6.5px; /* (2/2) - (15/2) 계산 수정 */
     transition: transform 0.1s ease;
 }
 
-/* 마우스 올렸을 때 살짝 커지는 효과 (선택 사항) */
-input[type="range"]:hover::-webkit-slider-thumb {
-    transform: scale(1.1);
-}
-
-/* 파이어폭스(Firefox) 호환성 설정 */
-input[type="range"]::-moz-range-track {
-    background: transparent;
-    border: none;
-}
-input[type="range"]::-moz-range-thumb {
-    height: 18px;
-    width: 18px;
-    border-radius: 50%;
-    background: #000000;
-    border: none;
-}
-body {
-
-  font-family: Conservatory, sans-serif;
-    
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  height: 100%;
-  width: 100%;
-  text-align: left;
-  color: #2c2e30;
-  margin: 0;
-  padding: 0;
-  height: 100vh;
-  width: 100vw;
-  background-color: #DFE8F4;
-
-  background-image: 
-    linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
-    radial-gradient(circle at center, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.1) 60%, transparent 100%),
-    radial-gradient(circle at 10% 80%, rgba(255, 255, 255, 0.12) 0%, transparent 80%),
-    radial-gradient(circle at 90% 10%, rgba(200, 220, 255, 0.1) 0%, transparent 80%);
-
-  background-size: 
-    6px 6px,     /* 격자 */
-    6px 6px,     
-    200% 200%,   /* 중앙 radial mask */
-    150% 150%,   /* 비대칭 흐름 */
-    150% 150%;
-
-  background-position: 
-    0 0,
-    0 0,
-    50% 50%,
-    0% 100%,
-    100% 0%;
-
-  animation: floatLayers 16s ease-in-out infinite;
-  transition: background-position 0.1s ease-out;
-  overflow-x: hidden;
-  will-change: background-position;
-
-
-
-  cursor: url('cursor.png') 10 10, auto;
-
-}
-
-::-webkit-scrollbar {
-  display: none;
-}
-
-header {
-    margin: 3vh 3vw;
-    display: inline-block;
-    text-align: left;
-    font-size: 0.8rem;
-}
-
-.statement {
-    margin: 3vh 3vw;
-    text-align: left;
-    font-size: 1.1rem;
-    height: 5vh;
-}
-
-.statement p {
-    font-size: 1.1rem;
-}
-
-.statement2 {
-    margin: 3vh 3vw;
-    text-align: left;
-    font-size: 1.1rem;
-}
-
-a {
-  all: unset;
-  cursor: pointer;
-}
-
-
-.contents {
-  justify-content: flex-start;   
-  align-items: flex-start;
-  display: flex;
-  flex-direction: row;
-  align-items: left;
-  width: 90vw;   /* ✅ 전체 뷰포트의 80%만 차지 */
-  height: 70vh;  /* ✅ 전체 뷰포트의 80%만 차지 */
-  margin: 3vw;  
-  gap: 1vw;      /* ✅ 슬라이더 사이 간격 */
-  box-sizing: border-box;
-}
-
-.projects {
-  justify-content: flex-start;   
-  align-items: flex-start;
-  align-items: left;
-  width: 90vw;   /* ✅ 전체 뷰포트의 80%만 차지 */
-  margin: 3vw;  
-  gap: 1vw;      /* ✅ 슬라이더 사이 간격 */
-  box-sizing: border-box;
-}
-
-.links {
-  display: flex;
-  flex-direction: column; 
-  align-items: flex-start; 
-  gap: 0.5rem; 
-}
-
-.links a {
-  font-size: 1.2rem;       
-  color: #2c2e30;
-  text-decoration: none;
-  margin-right: 1.5em;
-  display: inline-block;
-  transition: all 0.3s ease;
-  font-size: 0.8rem;
-}
-
-.links a:hover {
-  font-weight: bold;
-}
-
-.info {
-    margin: 3vh 3vw;
-    flex-grow: 1; 
-    display: flex;
-    justify-content: center; 
-    align-items: center;
-}
-
-.info table {
-    width: fit-content; 
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.slider {
-  flex: 1;
-  position: relative;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: transparent; 
-}
-
-.slider img {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  transition: opacity 0.5s ease;
-  z-index: 1;
-  opacity: 1; /* 기본값 */
-}
-
-.overlay-text {
-  background-color: #DFE8F4;
-
-  background-image: 
-    linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
-    radial-gradient(circle at center, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.1) 60%, transparent 100%),
-    radial-gradient(circle at 10% 80%, rgba(255, 255, 255, 0.12) 0%, transparent 80%),
-    radial-gradient(circle at 90% 10%, rgba(200, 220, 255, 0.1) 0%, transparent 80%);
-
-  background-size: 
-    6px 6px,     /* 격자 */
-    6px 6px,     
-    200% 200%,   /* 중앙 radial mask */
-    150% 150%,   /* 비대칭 흐름 */
-    150% 150%;
-
-  background-position: 
-    0 0,
-    0 0,
-    50% 50%,
-    0% 100%,
-    100% 0%;
-
-  position: absolute;
-  top: 40px;
-  left: 0;
-  right: 0;
-  padding: 1.7rem;
-  font-size: 1.9rem;
-  font-weight: bold;
-  color: black;
-  text-align: left;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  pointer-events: none;
-  z-index: 2;
-}
-
-/* 커서 올리면 이미지 반투명 + 텍스트 나타남 */
-.slider:hover img {
-  opacity: 0.3;
-}
-
-.slider:hover .overlay-text {
-  opacity: 1;
-}
-
-
+/* 8. 반응형 (모바일) */
 @media (max-aspect-ratio: 3/4), (max-width: 768px) {
-  .contents {
-    flex-direction: column;
-    width: 90vw;
-    height: 90vh;
-    gap: 2vh;
-  }
+    .contents {
+        flex-direction: column;
+        width: 90vw;
+        height: 90vh;
+        gap: 2vh;
+    }
 }
-
-
-footer {
-  margin-top: 3vh;
-  text-align: center;
-  content-align: center;
-}
-
-footer p {
-  font-size: 0.65rem; 
-  padding: 0.5em 0;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
