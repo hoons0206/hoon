@@ -7,9 +7,8 @@
 }
 
 @font-face {
-    font-family: Conservatory; /* 원하는 이름으로 설정 */
-    src: url('fonts/myfont.woff2') format('woff2'), /* 폰트 파일 경로 확인 */
-         url('fonts/Conservatory ADV2 R.otf') format('opentype');
+    font-family: Conservatory; /* 내가 사용할 이름 (자유롭게 지정) */
+    src: url('./fonts/Conservatory ADV3 R.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -109,6 +108,8 @@ input[type="range"]::-moz-range-thumb {
 }
 body {
 
+  font-family: "나눔고딕", NanumGothic, "돋움", dotum, sans-serif;
+    
   margin: 0;
   padding: 0;
   font-family: sans-serif;
@@ -338,6 +339,7 @@ footer p {
   font-size: 0.65rem; 
   padding: 0.5em 0;
 }
+
 
 
 
