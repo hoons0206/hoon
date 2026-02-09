@@ -56,7 +56,7 @@ a {
 
 header {
     margin: 3vh 3vw;
-    font-size: 0.8rem;
+    font-size: 1.1rem;
 }
 
 footer {
@@ -73,7 +73,7 @@ footer p {
 .statement, .statement2 {
     margin: 3vh 3vw;
     text-align: left;
-    font-size: 1.1rem;
+    font-size: 1.5rem;
 }
 
 .contents {
@@ -212,5 +212,6 @@ input[type="range"]::-webkit-slider-thumb {
         gap: 2vh;
     }
 }
+
 
 
