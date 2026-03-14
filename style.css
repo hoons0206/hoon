@@ -25,6 +25,7 @@
 body { 
     font-family: "Conservatory", "Gakgolzo", sans-serif; 
     overflow-x: hidden; /* 가로 스크롤 방지 */
+    background: #ffffff;
 }
 
 /* 1. 상단 이름 - 고정 높이 부여 */
@@ -36,7 +37,7 @@ body {
     font-weight: normal;
     align-items: center;
     justify-content: center;
-    background: #transparent;
+    background: #ffffff;
     margin: 0;
     position: sticky; /* 스크롤 시에도 상단 고정 (선택 사항) */
     top: 0;
