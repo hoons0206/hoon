@@ -70,12 +70,12 @@ body {
 
 .hero-text {
     /* 모바일에서는 vw 단위를 사용하여 유연하게 대응 */
-    font-size: 8vw; 
+    font-size: clamp(1.8rem, 4vw, 3.5rem);
     font-family: "Conservatory", "Gakgolzo", sans-serif;
     font-weight: normal;
     line-height: 1.8;
     word-break: keep-all;
-    text-align: center; /* 모바일은 중앙 정렬 */
+    text-align: left; /* 모바일은 중앙 정렬 */
     max-width: 90%;
 }
 
@@ -104,7 +104,7 @@ body {
 
     .main-content {
         flex: 2; /* 2/3 차지 */
-        padding: 4rem;
+        padding: 5rem;
         justify-content: flex-start; /* 왼쪽 정렬 */
     }
 
