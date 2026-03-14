@@ -2,7 +2,7 @@
 @font-face {
     font-family: 'Conservatory';
     src: url('./fonts/Conservatory ADV3 R.otf') format('opentype'),
-    src: url('./fonts/Conservatory ADV3 R.ttf') format('truetype');
+         url('./fonts/Conservatory ADV3 R.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -10,7 +10,7 @@
 @font-face {
     font-family: 'Gakgolzo';
     src: url('./fonts/Gakgolzo.otf') format('opentype'),
-    src: url('./fonts/Gakgolzo.ttf') format('truetype');
+         url('./fonts/Gakgolzo.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
