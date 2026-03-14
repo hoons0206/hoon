@@ -1,4 +1,3 @@
-
 @font-face {
     font-family: 'Conservatory';
     src: url('./fonts/Conservatory ADV3 R.otf') format('opentype'),
@@ -24,58 +23,63 @@
 
 body { 
     font-family: "Conservatory", "Gakgolzo", sans-serif; 
-    overflow-x: hidden; /* 가로 스크롤 방지 */
+    overflow-x: hidden;
     background: #ffffff;
+    color: #000;
 }
 
-/* 1. 상단 이름 - 고정 높이 부여 */
+/* 1. 상단 이름 */
 .site-header {
     width: 100%;
-    height: 80px; /* 헤더 높이 명시 */
+    height: 80px;
     display: flex;
-    font-synthesis: none;
-    font-weight: normal;
     align-items: center;
     justify-content: center;
     background: #ffffff;
-    margin: 0;
-    position: sticky; /* 스크롤 시에도 상단 고정 (선택 사항) */
+    position: sticky;
     top: 0;
     z-index: 100;
     border-bottom: 1px solid #000;
 }
 
-/* 2. 전체 컨테이너 - 헤더 높이만큼 제외하고 계산 */
-.container {
-    display: flex;
-    flex-direction: column;
-    min-height: calc(100vh - 80px); /* 전체 높이에서 헤더 80px 제외 */
-    background: #fff;
+/* 겹침 방지를 위해 header 내부의 h1(또는 텍스트)을 직접 제어 */
+.site-header h1 {
+    font-family: 'Conservatory';
+    font-weight: normal;
+    font-synthesis: none;
+    font-size: 1.5rem;
+    -webkit-font-smoothing: antialiased;
 }
 
-/* 3. 메인 문장 영역 */
+/* 2. 전체 컨테이너 */
+.container {
+    display: flex;
+    flex-direction: column; /* 모바일 우선: 세로 배치 */
+    min-height: calc(100vh - 80px);
+}
+
+/* 3. 메인 문장 영역 (모바일) */
 .main-content {
     flex: 1;
     display: flex;
-    align-items: center; /* 세로 중앙 */
-    justify-content: center; /* 가로 중앙 */
+    align-items: center;
+    justify-content: center;
     padding: 2rem;
-    background-color: #f9f9f9; /* 영역 확인용 (나중에 삭제 가능) */
+    background-color: #ffffff; /* 영역 확인 완료 후 흰색으로 변경 */
 }
 
-/* 가려짐 방지를 위한 텍스트 설정 */
 .hero-text {
-    font-family: "Gakgolzo", sans-serif;
-    font-size: 8vw; /* 모바일에서 화면 대비 폰트 크기 */
-    font-synthesis: none;
+    /* 모바일에서는 vw 단위를 사용하여 유연하게 대응 */
+    font-size: 8vw; 
+    font-family: "Conservatory", "Gakgolzo", sans-serif;
     font-weight: normal;
-    line-height: 1.9;
+    line-height: 1.2;
     word-break: keep-all;
-    text-align: center;
-    max-width: 90%; /* 양옆 여백 확보 */
+    text-align: center; /* 모바일은 중앙 정렬 */
+    max-width: 90%;
 }
 
-/* 4. 정보 및 다운로드 영역 */
+/* 4. 정보 영역 (모바일) */
 .sidebar {
     padding: 2rem;
     border-top: 1px solid #000;
@@ -85,26 +89,29 @@ body {
 /* 데스크탑 레이아웃 (768px 이상) */
 @media (min-width: 768px) {
     .container {
-        flex-direction: row; /* 가로 배치 */
+        flex-direction: row; /* 가로 배치 (1:2 비율) */
     }
 
     .sidebar {
-        flex: 1; /* 1/3 비율 */
+        flex: 1; /* 1/3 차지 */
         border-top: none;
         border-right: 1px solid #000;
         display: flex;
         flex-direction: column;
         justify-content: center;
-        background: #fff;
+        padding: 3rem;
     }
 
     .main-content {
-        flex: 2; /* 2/3 비율 */
+        flex: 2; /* 2/3 차지 */
+        padding: 4rem;
+        justify-content: flex-start; /* 왼쪽 정렬 */
     }
 
     .hero-text {
-        font-size: 5vw; /* 데스크탑에서 적절한 크기로 조정 */
-        text-align: left; /* 왼쪽 정렬이 디자인적으로 더 안정적일 수 있음 */
+        /* 데스크탑에서 문장이 너무 커지지 않도록 고정값(rem)이나 clamp 사용 */
+        font-size: clamp(2.5rem, 4vw, 3.8rem); 
+        text-align: left;
+        max-width: 100%;
     }
 }
-
