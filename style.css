@@ -1,8 +1,16 @@
 
 @font-face {
     font-family: 'Conservatory';
-    src: url('./fonts/Conservatory ADV3 R.otf') format('woff2'),
+    src: url('./fonts/Conservatory ADV3 R.otf') format('opentype'),
     src: url('./fonts/Conservatory ADV3 R.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gakgolzo';
+    src: url('./fonts/Gakgolzo.otf') format('opentype'),
+    src: url('./fonts/Gakgolzo.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -15,7 +23,7 @@
 }
 
 body { 
-    font-family: "Pretendard", sans-serif; 
+    font-family: "Pretendard", "Gakgolzo", sans-serif; 
     overflow-x: hidden; /* 가로 스크롤 방지 */
 }
 
