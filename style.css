@@ -15,201 +15,72 @@
     font-style: normal;
 }
 
-/* 2. 기본 레이아웃 설정 */
-body {
-    /* 기본 폰트 설정 (가장 아래에 있던 중복 선언 제거) */
-    font-family: 'Conservatory', sans-serif;
-    margin: 0;
-    padding: 0;
-    width: 100vw;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    color: #2c2e30;
-    background-color: #DFE8F4;
-    overflow-x: hidden;
-    cursor: url('cursor.png') 10 10, auto;
+/* 기본 스타일 & 리셋 */
+* { margin: 0; padding: 0; box-box: border-box; }
+body { font-family: "Pretendard", sans-serif; line-height: 1.6; }
 
-    /* 배경 애니메이션 및 효과 */
-    background-image: 
-        linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
-        radial-gradient(circle at center, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.1) 60%, transparent 100%),
-        radial-gradient(circle at 10% 80%, rgba(255, 255, 255, 0.12) 0%, transparent 80%),
-        radial-gradient(circle at 90% 10%, rgba(200, 220, 255, 0.1) 0%, transparent 80%);
-    background-size: 6px 6px, 6px 6px, 200% 200%, 150% 150%, 150% 150%;
-    background-position: 0 0, 0 0, 50% 50%, 0% 100%, 100% 0%;
-    animation: floatLayers 16s ease-in-out infinite;
-    transition: background-position 0.1s ease-out;
-    will-change: background-position;
-}
-
-/* 3. 공통 요소 스타일 */
-a {
-    all: unset;
-    cursor: pointer;
-}
-
-::-webkit-scrollbar {
-    display: none;
-}
-
-header {
-    margin: 3vh 3vw;
-    font-size: 1.1rem;
-}
-
-footer {
-    margin-top: 3vh;
+/* 상단 이름 - 모든 기기 공통 중앙 정렬 */
+.site-header {
+    width: 100%;
+    padding: 2rem 0;
     text-align: center;
+    border-bottom: 1px solid #eee;
 }
 
-footer p {
-    font-size: 0.65rem;
-    padding: 0.5em 0;
-}
-
-/* 4. 컨텐츠 섹션 */
-.statement, .statement2 {
-    margin: 3vh 3vw;
-    text-align: left;
-    font-size: 1.5rem;
-}
-
-.contents {
+/* 모바일 레이아웃 (기본값) */
+.container {
     display: flex;
-    flex-direction: row;
-    width: 90vw;
-    height: 70vh;
-    margin: 3vw;
-    gap: 1vw;
-    box-sizing: border-box;
+    flex-direction: column; /* 세로로 쌓기 */
+    min-height: calc(100-vh - 80px);
 }
 
-.projects {
-    width: 90vw;
-    margin: 3vw;
-    box-sizing: border-box;
-}
-
-.links {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-}
-
-.links a {
-    color: #2c2e30;
-    font-size: 0.9rem;
-    transition: all 0.3s ease;
-}
-
-.links a:hover {
-    font-weight: bold;
-}
-
-/* 5. 폰트 테스터 (입력창) 섹션 */
-.font-tester {
-    margin: 3vh 3vw;
-}
-
-.font-input {
+.sidebar, .main-content {
+    padding: 2rem;
     width: 100%;
-    height: 50vh;
-    font-size: 48px;
-    border: none;
-    outline: none;
-    background-color: transparent;
-    resize: none;
-    line-height: 1.4;
-    display: block;
-    box-sizing: border-box;
 }
 
-.font-input.regular {
-    font-family: 'Conservatory', serif;
+/* 메인 문장 스타일 */
+.hero-text {
+    font-size: 8vw; /* 화면 너비에 맞게 유동적인 글자 크기 */
+    font-weight: 800;
+    word-break: keep-all;
+    line-height: 1.2;
 }
 
-.font-input.display {
-    font-family: 'Conservatory Display', serif;
+/* 다운로드 버튼 스타일 */
+.download-btn {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.8rem 1.5rem;
+    background: #000;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
 }
 
-/* 6. 슬라이더 및 이미지 오버레이 */
-.slider {
-    flex: 1;
-    position: relative;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+/* 데스크탑 레이아웃 (화면 너비 768px 이상일 때) */
+@media (min-width: 768px) {
+    .container {
+        flex-direction: row; /* 가로로 배치 */
+        height: 80vh;
+    }
 
-.slider img {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    transition: opacity 0.5s ease;
-    z-index: 1;
-}
+    .sidebar {
+        flex: 1; /* 1/3 비율 */
+        border-right: 1px solid #eee;
+        display: flex;
+        align-items: center; /* 세로 중앙 정렬 */
+    }
 
-.slider:hover img {
-    opacity: 0.3;
-}
+    .main-content {
+        flex: 2; /* 2/3 비율 */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 
-.overlay-text {
-    position: absolute;
-    top: 40px;
-    left: 0;
-    right: 0;
-    padding: 1.7rem;
-    font-size: 1.9rem;
-    font-weight: bold;
-    color: black;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    z-index: 2;
-    pointer-events: none;
-    /* 배경 효과 재선언 (필요 시 유지) */
-    background-color: #DFE8F4;
-    background-image: inherit; /* body의 배경 상속 */
-}
-
-.slider:hover .overlay-text {
-    opacity: 1;
-}
-
-/* 7. 슬라이더 컨트롤 스타일 (Range input) */
-input[type="range"] {
-    -webkit-appearance: none;
-    width: 100%;
-    background: transparent;
-    cursor: pointer;
-}
-
-input[type="range"]::-webkit-slider-runnable-track {
-    width: 100%;
-    height: 2px;
-    background: transparent;
-}
-
-input[type="range"]::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    height: 15px;
-    width: 15px;
-    border-radius: 50%;
-    background: #000000;
-    margin-top: -6.5px; /* (2/2) - (15/2) 계산 수정 */
-    transition: transform 0.1s ease;
-}
-
-/* 8. 반응형 (모바일) */
-@media (max-aspect-ratio: 3/4), (max-width: 768px) {
-    .contents {
-        flex-direction: column;
-        width: 90vw;
-        height: 90vh;
-        gap: 2vh;
+    .hero-text {
+        font-size: 5vw; /* 데스크탑에 맞는 크기 조절 */
     }
 }
 
