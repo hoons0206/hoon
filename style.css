@@ -73,7 +73,7 @@ body {
     font-size: 8vw; 
     font-family: "Conservatory", "Gakgolzo", sans-serif;
     font-weight: normal;
-    line-height: 1.2;
+    line-height: 1.8;
     word-break: keep-all;
     text-align: center; /* 모바일은 중앙 정렬 */
     max-width: 90%;
@@ -113,5 +113,6 @@ body {
         font-size: clamp(2.5rem, 4vw, 3.8rem); 
         text-align: left;
         max-width: 100%;
+        line-height: 1.8;
     }
 }
