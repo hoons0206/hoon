@@ -60,9 +60,10 @@ body {
 
 /* 가려짐 방지를 위한 텍스트 설정 */
 .hero-text {
+    font-family: "Gakgolzo", sans-serif;
     font-size: 8vw; /* 모바일에서 화면 대비 폰트 크기 */
     font-weight: 800;
-    line-height: 1.1;
+    line-height: 1.2;
     word-break: keep-all;
     text-align: center;
     max-width: 90%; /* 양옆 여백 확보 */
