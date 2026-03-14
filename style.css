@@ -50,6 +50,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: calc(100vh - 80px); /* 전체 높이에서 헤더 80px 제외 */
+    background: #fff;
 }
 
 /* 3. 메인 문장 영역 */
@@ -78,6 +79,7 @@ body {
 .sidebar {
     padding: 2rem;
     border-top: 1px solid #000;
+    background: #fff;
 }
 
 /* 데스크탑 레이아웃 (768px 이상) */
@@ -93,6 +95,7 @@ body {
         display: flex;
         flex-direction: column;
         justify-content: center;
+        background: #fff;
     }
 
     .main-content {
