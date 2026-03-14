@@ -9,8 +9,8 @@
 
 @font-face {
     font-family: 'Gakgolzo';
-    src: url('./fonts/Gakgolzo.otf') format('opentype'),
-         url('./fonts/Gakgolzo.ttf') format('truetype');
+    src: url('./fonts/gakgolzo.otf') format('opentype'),
+         url('./fonts/gakgolzo.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
