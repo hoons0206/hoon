@@ -1,15 +1,7 @@
-/* 1. 폰트 정의 (가장 상단에 위치) */
-@font-face {
-    font-family: 'Conservatory Display';
-    /* 경로 확인: fonts 폴더 내 파일명과 정확히 일치해야 함 */
-    src: url('./fonts/Conservatory Display ADV R.otf') format('opentype');
-    font-weight: normal;
-    font-style: normal;
-}
 
 @font-face {
     font-family: 'Conservatory';
-    src: url('./fonts/Conservatory ADV3 R.woff2') format('woff2'),
+    src: url('./fonts/Conservatory ADV3 R.otf') format('woff2'),
     src: url('./fonts/Conservatory ADV3 R.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
