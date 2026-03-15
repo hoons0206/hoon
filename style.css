@@ -143,7 +143,7 @@ body {
 
 /* 1. 상단 헤더 배경 (bg0.png) */
 body.dark-mode .site-header {
-    background-image: url('./bg0.png');
+    background-image: url('./images/bg0.png');
     background-size: cover;
     background-position: center;
     border-bottom: 1px solid #fff;
@@ -156,7 +156,7 @@ body.dark-mode .site-header h1 {
 
 /* 2. 사이드바 배경 (bg1.png) */
 body.dark-mode .sidebar {
-    background-image: url('./bg1.png');
+    background-image: url('./images/bg1.png');
     background-size: cover;
     background-position: center;
     border-right: 1px solid #fff;
@@ -165,7 +165,7 @@ body.dark-mode .sidebar {
 
 /* 3. 메인 문장 영역 배경 (bg2.png) */
 body.dark-mode .main-content {
-    background-image: url('./bg2.png');
+    background-image: url('./images/bg2.png');
     background-size: cover;
     background-position: center;
     color: #fff;
