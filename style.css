@@ -1,3 +1,4 @@
+/* 폰트 설정 */
 @font-face {
     font-family: 'Conservatory';
     src: url('./fonts/Conservatory ADV3 R.otf') format('opentype'),
@@ -14,32 +15,33 @@
     font-style: normal;
 }
 
+/* 커스텀 커서 설정 */
 html, body, a, button, [contenteditable="true"] {
-    cursor: none !important;
+    cursor: none !important; /* 모든 기본 커서 숨김 */
 }
 
 #custom-cursor {
     position: fixed;
     top: 0;
     left: 0;
-    width: 20px;       /* 정사각형 크기 */
+    width: 20px;
     height: 20px;
-    background-color: white; /* 반전 효과를 위해 흰색 설정 */
-    pointer-events: none;    /* 커서가 클릭을 방해하지 않도록 함 */
-    z-index: 9999;
-    mix-blend-mode: difference; /* 배경색에 따라 색상이 반전됨 */
-    transition: width 0.2s, height 0.2s, border-radius 0.2s;
-    transform: translate(-50%, -50%); /* 클릭 지점을 정사각형 중앙으로 */
+    background-color: white; /* 반전 효과를 위해 흰색 유지 */
+    pointer-events: none;
+    z-index: 10000; /* 최상단에 위치 */
+    mix-blend-mode: difference; /* 배경색에 따라 반전 */
+    transition: width 0.2s, height 0.2s, transform 0.1s ease-out;
+    transform: translate(-50%, -50%);
+    border-radius: 0; /* 정사각형 */
 }
 
-/* 한글 문장(입력 가능 구역)에 마우스를 올렸을 때 */
+/* 텍스트 입력 영역 진입 시 커서 (I자 모양) */
 body.typing-mode #custom-cursor {
-    width: 4px;        /* 대문자 I 형태의 세로 기둥 */
-    height: 40px;      /* 기존보다 더 큰 사이즈 */
-    border-radius: 0;  /* 정사각형/직사각형 유지 */
+    width: 2px;
+    height: 40px;
 }
 
-/* 기본 스타일 초기화 */
+/* 기본 레이아웃 초기화 */
 * { 
     margin: 0; 
     padding: 0; 
@@ -51,11 +53,10 @@ body {
     overflow-x: hidden;
     background: #ffffff;
     color: #000;
-    /* 테마 전환 시 부드러운 느낌을 위해 추가 */
     transition: background 0.3s ease, color 0.3s ease;
 }
 
-/* 1. 상단 이름 */
+/* 헤더 스타일 */
 .site-header {
     width: 100%;
     height: 80px;
@@ -67,25 +68,21 @@ body {
     top: 0;
     z-index: 100;
     border-bottom: 1px solid #000;
-    transition: background-image 0.5s ease;
 }
 
 .site-header h1 {
     font-family: 'Conservatory';
-    font-weight: normal;
-    font-synthesis: none;
     font-size: 1.5rem;
-    -webkit-font-smoothing: antialiased;
+    font-weight: normal;
 }
 
-/* 2. 전체 컨테이너 */
+/* 메인 컨테이너 */
 .container {
     display: flex;
     flex-direction: column;
     min-height: calc(100vh - 80px);
 }
 
-/* 3. 메인 문장 영역 */
 .main-content {
     flex: 1;
     display: flex;
@@ -98,31 +95,23 @@ body {
 
 .hero-text {
     font-size: clamp(1.8rem, 4vw, 3.5rem);
-    font-family: "Conservatory", "Gakgolzo", sans-serif;
-    font-weight: normal;
     line-height: 1.8;
-    word-break: keep-all;
-    text-align: left;
     max-width: 90%;
     outline: none;
-    cursor: text;
 }
 
 .hero-text:empty::before {
     content: "여기에 당신의 흔적을 남겨보세요...";
     color: #cccccc;
-    display: block;
 }
 
-/* 4. 정보 영역 */
+/* 사이드바 및 버튼 */
 .sidebar {
     padding: 2rem;
     border-top: 1px solid #000;
     background: #fff;
-    transition: background-image 0.5s ease;
 }
 
-/* 버튼 공통 스타일 (미디어 쿼리 밖으로 이동) */
 .experiment-btn {
     display: inline-block;
     margin-top: 1.1rem;
@@ -130,9 +119,7 @@ body {
     background: #000;
     color: #fff;
     border: 1px solid #000;
-    cursor: pointer;
     font-family: "Conservatory", sans-serif;
-    transition: all 0.3s ease;
 }
 
 .download-btn {
@@ -145,9 +132,7 @@ body {
     border: 1px solid #000;
 }
 
-/* --- 다크 모드 (이미지 배경 버전) --- */
-/* 미디어 쿼리 밖으로 빼야 모든 기기에서 작동합니다 */
-
+/* --- 다크 모드 (이미지 배경) --- */
 body.dark-mode .site-header {
     background-image: url('./images/bg0.png');
     background-size: cover;
@@ -156,10 +141,7 @@ body.dark-mode .site-header {
 }
 
 body.dark-mode .sidebar {
-    /*background-image: url('./images/bg1.png');*/
     background-color: #000;
-    background-size: cover;
-    background-position: center;
     border-color: #fff;
     color: #fff;
 }
@@ -176,42 +158,27 @@ body.dark-mode .hero-text {
     color: #fff;
 }
 
-body.dark-mode .experiment-btn {
-    background: #fff;
-    color: #000;
-    border-color: #fff;
-}
-
+body.dark-mode .experiment-btn,
 body.dark-mode .download-btn {
     background: #fff;
     color: #000;
     border-color: #fff;
 }
 
-/* 데스크탑 레이아웃 (768px 이상) */
+/* 데스크탑 레이아웃 */
 @media (min-width: 768px) {
-    .container {
-        flex-direction: row;
-        align-items: stretch; 
-    }
-
+    .container { flex-direction: row; }
     .sidebar {
         flex: 1;
         border-top: none;
         border-right: 1px solid #000;
-        justify-content: flex-start;
         padding: 5rem 3rem;
     }
-
     .main-content {
         flex: 2;
         padding: 5rem;
-        align-items: flex-start; 
+        align-items: flex-start;
         justify-content: flex-start;
     }
-
-    .hero-text {
-        font-size: clamp(2.5rem, 4vw, 3.8rem);
-        max-width: 100%;
-    }
+    .hero-text { font-size: clamp(2.5rem, 4vw, 3.8rem); max-width: 100%; }
 }
