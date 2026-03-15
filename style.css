@@ -101,7 +101,7 @@ body {
 .experiment-btn {
     display: inline-block;
     margin-top: 1rem;
-    padding: 0.4rem 0.5rem;
+    padding: 0.2rem 0.4rem;
     background: #000;
     color: #fff;
     border: 1px solid #000;
@@ -159,6 +159,7 @@ body.dark-mode .experiment-btn {
 body.dark-mode .download-btn {
     background: #fff;
     color: #000;
+    border-color: #fff;
 }
 
 /* 데스크탑 레이아웃 (768px 이상) */
