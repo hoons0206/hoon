@@ -139,7 +139,7 @@ body.dark-mode .sidebar {
 }
 
 body.dark-mode .main-content {
-    background-image: url('./images/bg2.png');
+    background-image: url('./images/bg2.gif');
     background-size: cover;
     background-position: center;
 }
