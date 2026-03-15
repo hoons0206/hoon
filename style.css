@@ -37,7 +37,7 @@ html, body, a, button, [contenteditable="true"] {
 
 /* 텍스트 입력 영역 진입 시 커서 (I자 모양) */
 body.typing-mode #custom-cursor {
-    width: 2px;
+    width: 8px;
     height: 40px;
 }
 
