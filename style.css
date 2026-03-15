@@ -139,30 +139,39 @@ body {
     color: #fff;
 }
 
-/* --- 다크 모드 스타일 정의 --- */
-/* body에 .dark-mode 클래스가 붙으면 아래 스타일들이 적용됩니다. */
+/* --- 다크 모드 스타일 (이미지 배경 버전) --- */
 
-body.dark-mode {
-    background: #000;
-    color: #fff;
-}
-
+/* 1. 상단 헤더 배경 (bg0.png) */
 body.dark-mode .site-header {
-    background: #000;
+    background-image: url('./bg0.png');
+    background-size: cover;
+    background-position: center;
     border-bottom: 1px solid #fff;
+    color: #fff; /* 텍스트 흰색 변경 */
 }
 
 body.dark-mode .site-header h1 {
     color: #fff;
 }
 
-body.dark-mode .container, 
-body.dark-mode .sidebar, 
-body.dark-mode .main-content {
-    background: #000;
-    border-color: #fff; /* 테두리 색상 반전 */
+/* 2. 사이드바 배경 (bg1.png) */
+body.dark-mode .sidebar {
+    background-image: url('./bg1.png');
+    background-size: cover;
+    background-position: center;
+    border-right: 1px solid #fff;
+    color: #fff;
 }
 
+/* 3. 메인 문장 영역 배경 (bg2.png) */
+body.dark-mode .main-content {
+    background-image: url('./bg2.png');
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+}
+
+/* 4. 다크 모드 시 텍스트 및 버튼 가독성 확보 */
 body.dark-mode .hero-text {
     color: #fff;
 }
@@ -170,11 +179,6 @@ body.dark-mode .hero-text {
 body.dark-mode .experiment-btn {
     border-color: #fff;
     color: #fff;
-}
-
-body.dark-mode .experiment-btn:hover {
-    background: #fff;
-    color: #000;
 }
 
 body.dark-mode .download-btn {
