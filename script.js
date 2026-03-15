@@ -6,7 +6,13 @@ document.addEventListener('DOMContentLoaded', () => {
     if (btn) {
         btn.addEventListener('click', function() {
             // body에 'dark-mode' 클래스를 토글
-            document.body.classList.toggle('dark-mode');
+            const isDark = document.body.classList.toggle('dark-mode');
+
+            if (isDark) {
+                btn.textContent = 'Experiment';
+            } else {
+                btn.textContent = 'Conformity';
+            }
             
             // 시각적 피드백: 콘솔 확인용 (브라우저 F12에서 확인 가능)
             console.log("Dark mode toggled: ", document.body.classList.contains('dark-mode'));
