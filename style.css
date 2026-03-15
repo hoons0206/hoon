@@ -26,6 +26,8 @@ body {
     overflow-x: hidden;
     background: #ffffff;
     color: #000;
+    /* 테마 전환 시 부드러운 느낌을 위해 추가 */
+    transition: background 0.3s ease, color 0.3s ease;
 }
 
 /* 1. 상단 이름 */
@@ -40,9 +42,9 @@ body {
     top: 0;
     z-index: 100;
     border-bottom: 1px solid #000;
+    transition: background-image 0.5s ease;
 }
 
-/* 겹침 방지를 위해 header 내부의 h1(또는 텍스트)을 직접 제어 */
 .site-header h1 {
     font-family: 'Conservatory';
     font-weight: normal;
@@ -54,11 +56,11 @@ body {
 /* 2. 전체 컨테이너 */
 .container {
     display: flex;
-    flex-direction: column; /* 모바일 우선: 세로 배치 */
+    flex-direction: column;
     min-height: calc(100vh - 80px);
 }
 
-/* 3. 메인 문장 영역 (모바일) */
+/* 3. 메인 문장 영역 */
 .main-content {
     flex: 1;
     display: flex;
@@ -66,11 +68,10 @@ body {
     justify-content: center;
     padding: 2rem;
     background-color: #ffffff;
+    transition: background-image 0.5s ease;
 }
 
-/* 텍스트 입력 캔버스 역할을 하는 메인 문장 설정 */
 .hero-text {
-    /* 모바일에서는 vw 단위를 사용하여 유연하게 대응 */
     font-size: clamp(1.8rem, 4vw, 3.5rem);
     font-family: "Conservatory", "Gakgolzo", sans-serif;
     font-weight: normal;
@@ -78,24 +79,35 @@ body {
     word-break: keep-all;
     text-align: left;
     max-width: 90%;
-    
-    /* 관람자 타이핑(contenteditable) 관련 추가 속성 */
-    outline: none; /* 클릭 시 생기는 기본 파란색/검은색 테두리 제거 */
-    cursor: text;  /* 마우스 오버 시 텍스트 입력 커서로 변경 */
+    outline: none;
+    cursor: text;
 }
 
-/* 관람자가 텍스트를 모두 지웠을 때 나타나는 플레이스홀더 */
 .hero-text:empty::before {
-    content: "여기에 당신의 흔적을 남겨보세요..."; /* 원하는 문구로 수정하세요 */
+    content: "여기에 당신의 흔적을 남겨보세요...";
     color: #cccccc;
     display: block;
 }
 
-/* 4. 정보 영역 (모바일) */
+/* 4. 정보 영역 */
 .sidebar {
     padding: 2rem;
     border-top: 1px solid #000;
     background: #fff;
+    transition: background-image 0.5s ease;
+}
+
+/* 버튼 공통 스타일 (미디어 쿼리 밖으로 이동) */
+.experiment-btn {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.4rem 0.5rem;
+    background: #000;
+    color: #fff;
+    border: 1px solid #000;
+    cursor: pointer;
+    font-family: "Conservatory", sans-serif;
+    transition: all 0.3s ease;
 }
 
 .download-btn {
@@ -105,99 +117,74 @@ body {
     background: #000;
     color: #fff;
     text-decoration: none;
-    border-radius: 4px;
+    border: 1px solid #000;
 }
 
-/* 데스크탑 레이아웃 (768px 이상) */
-@media (min-width: 768px) {
-    .container {
-        flex-direction: row;
-        /* 상단 정렬을 위해 높이를 강제하지 않고 여유를 둡니다 */
-        align-items: stretch; 
-    }
+/* --- 다크 모드 (이미지 배경 버전) --- */
+/* 미디어 쿼리 밖으로 빼야 모든 기기에서 작동합니다 */
 
-    .sidebar {
-        flex: 1; /* 1/3 차지 */
-        border-top: none;
-        border-right: 1px solid #000;
-        justify-content: flex-start;
-        padding: 5rem 3rem;
-    }
-
-    .experiment-btn {
-    display: inline-block;
-    margin-top: 1rem;
-    padding: 0.4rem 0.5rem;
-    background: #000;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 1px;
-}
-
-.experiment-btn:hover {
-    background: #000;
-    color: #fff;
-}
-
-/* --- 다크 모드 스타일 (이미지 배경 버전) --- */
-
-/* 1. 상단 헤더 배경 (bg0.png) */
 body.dark-mode .site-header {
     background-image: url('./images/bg0.png');
     background-size: cover;
     background-position: center;
     border-bottom: 1px solid #fff;
-    color: #fff; /* 텍스트 흰색 변경 */
 }
 
-body.dark-mode .site-header h1 {
-    color: #fff;
-}
-
-/* 2. 사이드바 배경 (bg1.png) */
 body.dark-mode .sidebar {
     background-image: url('./images/bg1.png');
     background-size: cover;
     background-position: center;
-    border-right: 1px solid #fff;
+    border-color: #fff;
     color: #fff;
 }
 
-/* 3. 메인 문장 영역 배경 (bg2.png) */
 body.dark-mode .main-content {
     background-image: url('./images/bg2.png');
     background-size: cover;
     background-position: center;
-    color: #fff;
 }
 
-/* 4. 다크 모드 시 텍스트 및 버튼 가독성 확보 */
+body.dark-mode, 
+body.dark-mode .site-header h1,
 body.dark-mode .hero-text {
     color: #fff;
 }
 
 body.dark-mode .experiment-btn {
+    background: #fff;
+    color: #000;
     border-color: #fff;
-    color: #fff;
 }
 
 body.dark-mode .download-btn {
     background: #fff;
     color: #000;
 }
-    
+
+/* 데스크탑 레이아웃 (768px 이상) */
+@media (min-width: 768px) {
+    .container {
+        flex-direction: row;
+        align-items: stretch; 
+    }
+
+    .sidebar {
+        flex: 1;
+        border-top: none;
+        border-right: 1px solid #000;
+        justify-content: flex-start;
+        padding: 5rem 3rem;
+    }
+
     .main-content {
-        flex: 2; /* 2/3 차지 */
+        flex: 2;
         padding: 5rem;
         align-items: flex-start; 
         justify-content: flex-start;
     }
 
     .hero-text {
-        /* 데스크탑에서 문장이 너무 커지지 않도록 고정값(rem)이나 clamp 사용 */
-        font-size: clamp(2.5rem, 4vw, 3.8rem); 
-        text-align: left;
+        font-size: clamp(2.5rem, 4vw, 3.8rem);
         max-width: 100%;
-        line-height: 1.8;
     }
 }
