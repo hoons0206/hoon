@@ -131,7 +131,8 @@ body.dark-mode .site-header {
 }
 
 body.dark-mode .sidebar {
-    background-image: url('./images/bg1.png');
+    /*background-image: url('./images/bg1.png');*/
+    background-color: #fff;
     background-size: cover;
     background-position: center;
     border-color: #fff;
