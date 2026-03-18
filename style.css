@@ -1,9 +1,10 @@
 /* 폰트 설정 */
 @font-face {
     font-family: 'Conservatory';
-    src: url('./fonts/Conservatory ADV3 R.otf') format('opentype'),
-         url('./fonts/Conservatory ADV3 R.ttf') format('truetype');
-    font-weight: normal;
+    /* 가변 서체 파일 경로가 맞는지 확인해주세요 */
+    src: url('./fonts/Conservatory_Variable.ttf') format('truetype');
+    /* 가변 축(weight) 범위를 100에서 400으로 설정 */
+    font-weight: 100 400; 
     font-style: normal;
 }
 
@@ -13,6 +14,12 @@
          url('./fonts/gakgolzo.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
+}
+
+/* 개별 글자 가변 애니메이션용 스타일 */
+.var-char {
+    display: inline-block;
+    transition: font-weight 0.2s ease, font-variation-settings 0.2s ease;
 }
 
 /* 커스텀 커서 설정 */
