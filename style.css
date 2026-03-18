@@ -1,8 +1,8 @@
-/* 폰트 설정 */
+/* 1. 폰트 설정 */
 @font-face {
     font-family: 'Conservatory';
     /* 가변 서체 파일 경로가 맞는지 확인해주세요 */
-    src: url('./fonts/Conservatory ADV3 R-VF') format('opentype');
+    src: url('./fonts/Conservatory_Variable.ttf') format('truetype');
     /* 가변 축(weight) 범위를 100에서 400으로 설정 */
     font-weight: 100 400; 
     font-style: normal;
@@ -16,17 +16,124 @@
     font-style: normal;
 }
 
-/* ... 상단 폰트 및 커서 설정은 이전과 동일 ... */
-
-/* 개별 글자 애니메이션용 스타일 */
+/* 2. 가변 서체 애니메이션 전용 스타일 */
 .var-char {
     display: inline-block;
-    white-space: pre; /* 공백 유지 */
+    white-space: pre; /* 공백 및 줄바꿈 유지 */
     transition: font-weight 0.2s ease, font-variation-settings 0.2s ease;
-    pointer-events: none; /* 글자 단위 클릭 방해 금지 */
+    pointer-events: none; /* 글자 단위 클릭 방해 방지 */
 }
 
-/* 버튼 스타일 보정 */
+/* 3. 커스텀 커서 설정 */
+html, body, a, button, [contenteditable="true"] {
+    cursor: none !important; /* 모든 기본 커서 숨김 */
+}
+
+#custom-cursor {
+    position: fixed;
+    top: 0; left: 0;
+    width: 20px; height: 20px;
+    background-color: white; /* 반전 효과를 위해 흰색 유지 */
+    pointer-events: none;
+    z-index: 10000;
+    mix-blend-mode: difference; /* 배경색에 따라 반전 */
+    transition: width 0.2s, height 0.2s, transform 0.1s ease-out;
+    transform: translate(-50%, -50%);
+    border-radius: 0; /* 정사각형 */
+}
+
+/* 텍스트 입력 영역 진입 시 커서 모양 변경 */
+body.typing-mode #custom-cursor {
+    width: 8px;
+    height: 40px;
+}
+
+/* 4. 기본 레이아웃 초기화 */
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
+
+/* iOS 스크롤 바운스 시 배경색 동기화 */
+html {
+    background-color: #ffffff;
+}
+
+body { 
+    font-family: "Conservatory", "Gakgolzo", sans-serif; 
+    overflow-x: hidden;
+    background: #ffffff;
+    color: #000;
+    transition: background 0.3s ease, color 0.3s ease;
+    overscroll-behavior-y: none;
+}
+
+/* 5. 헤더 스타일 */
+.site-header {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid #000;
+}
+
+.site-header h1 {
+    font-family: 'Conservatory';
+    font-size: 1.5rem;
+    font-weight: normal;
+}
+
+/* 6. 메인 컨테이너 및 [모바일 레이아웃] */
+.container {
+    display: flex;
+    flex-direction: column; /* 세로 배치 */
+    min-height: calc(100vh - 80px);
+}
+
+.main-content {
+    order: 1; /* [모바일] 이름 바로 다음에 한글 문장 출력 */
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    background-color: #ffffff;
+    transition: background-image 0.5s ease;
+}
+
+.sidebar {
+    order: 2; /* [모바일] 정보란을 가장 아래로 배치 */
+    padding: 2.5rem 2rem;
+    border-top: 1px solid #000;
+    background: #fff;
+    font-family: 'Conservatory';
+}
+
+/* 7. 텍스트 요소 스타일 */
+.hero-text {
+    font-size: clamp(1.8rem, 4vw, 3.5rem);
+    line-height: 1.8;
+    max-width: 90%;
+    outline: none;
+}
+
+.hero-text:empty::before {
+    content: "여기에 당신의 흔적을 남겨보세요...";
+    color: #cccccc;
+}
+
+.sidebar p {
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+}
+
+/* 8. 버튼 및 링크 스타일 */
 .experiment-btn, .download-btn {
     display: inline-block;
     margin-top: 1rem;
@@ -36,15 +143,76 @@
     border: 1px solid #000;
     font-family: "Conservatory", sans-serif;
     text-decoration: none;
-    cursor: none;
     text-align: center;
     vertical-align: middle;
 }
 
-/* 사이드바 텍스트 정렬 */
-.sidebar p {
-    font-family: 'Conservatory';
-    line-height: 1.6;
+/* 9. --- 다크 모드 (Experiment) 스타일 --- */
+body.dark-mode html {
+    background-color: #000000;
 }
 
-/* ... 나머지 레이아웃 및 다크모드 설정 유지 ... */
+body.dark-mode .site-header {
+    background-image: url('./images/bg0.png');
+    background-size: cover;
+    background-position: center;
+    border-bottom: 1px solid #fff;
+}
+
+body.dark-mode .sidebar {
+    background-color: #000;
+    border-color: #fff;
+    color: #fff;
+}
+
+body.dark-mode .main-content {
+    background-image: url('./images/bg2.gif');
+    background-size: cover;
+    background-position: center;
+}
+
+body.dark-mode, 
+body.dark-mode .site-header h1,
+body.dark-mode .hero-text {
+    color: #fff;
+}
+
+body.dark-mode .experiment-btn,
+body.dark-mode .download-btn {
+    background: #fff;
+    color: #000;
+    border-color: #fff;
+}
+
+/* 10. --- 데스크탑 레이아웃 (768px 이상) --- */
+@media (min-width: 768px) {
+    .container { 
+        flex-direction: row; /* 가로 배치로 복구 */
+    }
+
+    .sidebar {
+        flex: 1;
+        order: 1; /* [데스크탑] 정보란을 다시 왼쪽으로 */
+        border-top: none;
+        border-right: 1px solid #000;
+        padding: 5rem 3rem;
+    }
+
+    .main-content {
+        flex: 2;
+        order: 2; /* [데스크탑] 한글 문장을 다시 오른쪽으로 */
+        padding: 5rem;
+        align-items: flex-start;
+        justify-content: flex-start;
+    }
+
+    body.dark-mode .sidebar {
+        border-right: 1px solid #fff;
+        border-top: none;
+    }
+
+    .hero-text { 
+        font-size: clamp(2.5rem, 4vw, 3.8rem); 
+        max-width: 100%; 
+    }
+}
