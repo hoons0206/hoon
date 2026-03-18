@@ -3,8 +3,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const cursor = document.getElementById('custom-cursor');
     const heroText = document.querySelector('.hero-text');
     const headerTitle = document.querySelector('.site-header h1');
+    const sidebarP = document.querySelector('.sidebar p'); // 정보란의 문단 선택
 
-    // 1. 커서 위치 추적 (마우스가 움직일 때마다 실행)
+    // 1. 커서 위치 추적
     document.addEventListener('mousemove', (e) => {
         if (cursor) {
             cursor.style.left = e.clientX + 'px';
@@ -16,14 +17,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (btn) {
         btn.addEventListener('click', function() {
             const isDark = document.body.classList.toggle('dark-mode');
-            
-            // 텍스트 변경: 다크모드(Experiment) / 라이트모드(Conformity)
             btn.textContent = isDark ? 'Experiment' : 'Conformity';
-            
-            console.log("Dark mode toggled: ", isDark);
         });
-    } else {
-        console.error("버튼을 찾을 수 없습니다. ID가 'theme-toggle'인지 확인해주세요.");
     }
 
     // 3. 텍스트 입력 영역 진입 시 커서 모양 변경
@@ -36,44 +31,45 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 4. 가변 서체(Variable Font) 실시간 제어 로직
-    if (headerTitle) {
-        const text = headerTitle.textContent;
-        headerTitle.innerHTML = ''; // 기존 텍스트 비우기
+    // --- 4. 가변 서체 애니메이션 준비 로직 ---
 
-        // 한 글자씩 쪼개서 span 태그로 감싸기 (개별 제어를 위해)
+    // 텍스트를 span으로 쪼개주는 재사용 함수
+    const splitIntoSpans = (element) => {
+        if (!element) return;
+        const text = element.textContent;
+        element.innerHTML = '';
         for (let char of text) {
             if (char === ' ') {
-                // 띄어쓰기는 그대로 유지
-                headerTitle.appendChild(document.createTextNode(' '));
+                element.appendChild(document.createTextNode(' '));
             } else {
                 const span = document.createElement('span');
                 span.textContent = char;
                 span.className = 'var-char';
-                headerTitle.appendChild(span);
+                element.appendChild(span);
             }
         }
+    };
 
-        // 일정한 시간 간격으로 글자 굵기 무작위 변경
-        // 200ms(0.2초) 간격으로 설정되어 있습니다. 숫자를 조절해 템포를 바꿀 수 있습니다.
-        setInterval(() => {
-            const chars = document.querySelectorAll('.var-char');
-            const isDark = document.body.classList.contains('dark-mode');
+    // 이름(h1)과 정보란(p) 모두 쪼개기 실행
+    splitIntoSpans(headerTitle);
+    splitIntoSpans(sidebarP);
 
-            chars.forEach(char => {
-                if (isDark) {
-                    // Experiment 모드: 100 ~ 400 사이의 랜덤 정수 생성
-                    const randomWeight = Math.floor(Math.random() * 301) + 100;
-                    
-                    // 가변 서체 축 제어 (호환성을 위해 fontVariationSettings와 fontWeight 동시 적용)
-                    char.style.fontVariationSettings = `"wght" ${randomWeight}`;
-                    char.style.fontWeight = randomWeight;
-                } else {
-                    // Conformity 모드: 굵기 300으로 고정
-                    char.style.fontVariationSettings = `"wght" 300`;
-                    char.style.fontWeight = 300;
-                }
-            });
-        }, 200); 
-    }
+    // 5. 실시간 굵기 랜덤 변경 (setInterval)
+    setInterval(() => {
+        const chars = document.querySelectorAll('.var-char');
+        const isDark = document.body.classList.contains('dark-mode');
+
+        chars.forEach(char => {
+            if (isDark) {
+                // Experiment 모드: 100 ~ 400 랜덤
+                const randomWeight = Math.floor(Math.random() * 301) + 100;
+                char.style.fontVariationSettings = `"wght" ${randomWeight}`;
+                char.style.fontWeight = randomWeight;
+            } else {
+                // Conformity 모드: 300 고정
+                char.style.fontVariationSettings = `"wght" 300`;
+                char.style.fontWeight = 300;
+            }
+        });
+    }, 200); // 0.2초 간격
 });
