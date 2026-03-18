@@ -2,7 +2,7 @@
 @font-face {
     font-family: 'Conservatory';
     /* 가변 서체 파일 경로가 맞는지 확인해주세요 */
-    src: url('./fonts/Conservatory_Variable.ttf') format('truetype');
+    src: url('./fonts/Conservatory ADV3 R-VF') format('opentype');
     /* 가변 축(weight) 범위를 100에서 400으로 설정 */
     font-weight: 100 400; 
     font-style: normal;
