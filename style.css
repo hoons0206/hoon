@@ -1,9 +1,9 @@
 /* 1. 폰트 설정 */
 @font-face {
     font-family: 'Conservatory';
-    /* 가변 서체 파일 경로가 맞는지 확인해주세요 */
-    src: url('./fonts/ConservatoryVF.ttf') format('truetype');
-    /* 가변 축(weight) 범위를 100에서 400으로 설정 */
+    /* 사파리가 먼저 읽고 인식할 수 있도록 truetype-variations를 앞에 선언해 줘 */
+    src: url('./fonts/ConservatoryVF.ttf') format('truetype-variations'),
+         url('./fonts/ConservatoryVF.ttf') format('truetype');
     font-weight: 100 400; 
     font-style: normal;
 }
