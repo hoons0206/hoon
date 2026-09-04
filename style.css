@@ -266,7 +266,7 @@ body.dark-mode .download-btn {
     }
 
     .hero-text { 
-        font-size: clamp(2.5rem, 4vw, 3.8rem); 
+        font-size: clamp(1.3rem, 4vw, 1.3rem); 
         max-width: 100%; 
     }
 }
